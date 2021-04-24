@@ -1,9 +1,4 @@
----
-layout: posts
-title:  "github 블로그 시작하기"
-date:   2021-04-24 18:46:07 +0900
-categories: common blog
----
+# github 블로그 시작하기
 
 깃헙 블로그를 시작하면서 개발장비에서 로컬 개발환경을 구성하고, 깃허브에 업로드하여 접속하는 단계까지 진행합니다.
 
@@ -16,6 +11,19 @@ categories: common blog
 
 
 ## Step
+
+### 0. RVM install
+
+```
+$ curl -sSL https://get.rvm.io | bash
+...
+$ rvm list
+$ rvm install 2.7.1
+$ rvm list
+$ rvm alias create default 2.7.1
+```
+
+
 
 ### 1. Install jekyll, bundler
 
@@ -61,96 +69,71 @@ $ bundle exec jekyll serve --host 0.0.0.0 --port 8080
 
 깃헙에서 제공해주는 테마는 특별한 설정 없이 _config.yml 파일에 theme: 만 명시하여 사용할 수 있어 간편하게  사용할 수 있으며, 커스텀 테마는 추가 설정을 해주어 더 좋은 퀄리트의 테마를 사용할 수 있습니다.
 
-`jekyll new-theme <THEME-NAME>` 커맨드로 테마별로 기본 사이트를 생성할 수 있습니다
+`jekyll new-theme <THEME-NAME>` 커맨드로 테마별로 샘플 사이트를 생성할 수 있습니다
 
 
 
-### 커스텀 Theme 리스트
+#### 커스텀 Theme 리스트들
 
 1. [GitHub.com #jekyll-theme repos](https://github.com/topics/jekyll-theme)
+
 2. [jamstackthemes.dev](https://jamstackthemes.dev/ssg/jekyll/)
+
 3. [jekyllthemes.org](http://jekyllthemes.org/)
+
 4. [jekyllthemes.io](https://jekyllthemes.io/)
+
 5. [jekyll-themes.com](https://jekyll-themes.com/)
+
 6. [Resource](https://jekyllrb.com/resources/)
 
 
 
-예제는 Minimal mistakes theme를 사용하여 진행하겠습니다.
+예제는 커스텀 테마인 Minimal mistakes theme를 사용하여 진행하겠습니다.
 
 ### Minimal mistakes theme
 
 [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) , [github](https://github.com/mmistakes/minimal-mistakes)
 
-가장 많이 사용된다고 하여 Minimal Mistakes 를 선택하였습니다. 문서도 잘 되어 있는것같네요
-
-이 테마는 Gem-based theme로도, remote theme로도 사용이 가능합니다 
-
-### Gem-based themes 란?
-
-jekyll new <PATH> 커맨드로 Jekyll 사이트를 생성하면 기본적으로 Minima 테마의 gem-based 타입으로 생성됩니다. gem-based 의 경우 assets, _layouts, _includes, _sass 폴더가 gem에 저장되며 실제 폴더는 숨겨집니다. 이들은 Jekyll을 빌드하고 실행할 때 처리가 될것입니다.
-
-즉, github에 업로드하지 않고 서버나 데스크탑에 설치형식으로 운영하는경우 사용하면 되는걸로 보이네요.
+가장 많이 사용된다고 하여 Minimal Mistakes 를 선택하였습니다. 문서도 잘 되어있습니다.
 
 
 
-아래는 기본 생성한 테마(Minima)의 경우 폴더 구조입니다.
+#### 1. github fork
+
+[minimal-mistakes](https://github.com/mmistakes/minimal-mistakes) 깃허브로 가서 저장소를 fork 받습니다. 
+
+#### 2. _config.yml 복사
+
+minimal-mistakes 깃허브의 _config.yml내용을 복사하여 Step에서 진행해온 내 사이트의 _config.yml에 붙여넣습니다. 또한 remote_theme 컬럼을 fork받은 깃허브 저장소로 변경해줍니다.
 
 ```
-ysh8361@DEV0:~/workspace/sea5727.github.io$ tree
-.
-├── 404.html
-├── about.markdown
-├── index.markdown
-├── _config.yml
-├── Gemfile
-├── Gemfile.lock
-├── _posts
-│   └── 2021-04-23-welcome-to-jekyll.markdown
+remote_theme             : "<깃허브아이디>/minimal-mistakes"
 ```
 
-`Gemfile` , `Gemfile.lock` 은 Jekyll 사이트를 구축하는데 필요한 gem들과 gem 버전들을 명시합니다. Gemfile에 명시된 gem들은 `gem update`로 모두 업데이트 할 수 있습니다. Gem-based 테마는 `gem`이나 gem theme를 `Gemfile` 에 명시하여 `bundle update` 로 개발자가 쉽게 업데이트하며 사용할 수 있습니다. 또는 `bundle update <THEME>`로 새로운 theme 버전을 프로젝트에 자동으로 업데이트 받을 수 있습니다. 
+ #### 3.  push
 
-
-
-### Gem-based method 사용하기
-
-1. Gemfile 에 추가
+변경된 내용을 저장소에 push를 합니다.
 
 ```
-vim Gemfile
-... 가장 위에 추가
-gem "minimals-mistakes-jekyll"
+$ git add .
+$ git commit -m "commit"
+$ git push
 ```
 
-2. bundle 업데이트
+#### 4. 사이트 확인
 
-```
-$ bundle
-```
-
-3. _config.yml 파일에 theme 추가
-
-```
-vim _config.yml
-... theme에 추가
-theme: minimal-mistakes-jekyll
-```
-
-4. 업데이트 run
-
-```
-bundle update
-```
+브라우저에 http://<깃허브아이디>.github.io로 접속하여 사이트 화면을 확인할 수 있습니다.
 
 
 
-### Remote theme method
-
-Remote theme method 란 Gem-based 방식과 비슷하지만 `Gemfile`을 변경할 필요가 없으며, github 사이트에서 호스팅되는 방식에 이상적입니다
 
 
+## Reference
 
-### Remote theme method 사용하기
+도움이 된 사이트입니다.
 
-1. 
+https://hahafamilia.github.io/howto/jekyll-github-mistakes-blog/
+
+https://jekyllrb.com/
+
