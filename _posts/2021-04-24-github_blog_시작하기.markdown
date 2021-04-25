@@ -1,4 +1,9 @@
-# github 블로그 시작하기
+---
+layout: posts
+title:  "github 블로그 시작하기"
+date:   2021-04-24 18:46:07 +0900
+categories: summary
+---
 
 깃헙 블로그를 시작하면서 개발장비에서 로컬 개발환경을 구성하고, 깃허브에 업로드하여 접속하는 단계까지 진행합니다.
 
@@ -137,3 +142,6 @@ https://hahafamilia.github.io/howto/jekyll-github-mistakes-blog/
 
 https://jekyllrb.com/
 
+https://junhobaik.github.io/jekyll-apply-theme/#%EB%8C%93%EA%B8%80-%EC%84%A4%EC%A0%95   
+
+https://ansohxxn.github.io/blog/jekyll-directory-structure/
