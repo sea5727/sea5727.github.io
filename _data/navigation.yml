@@ -1,7 +1,29 @@
 main:
-  - title: "Archive"
-    url: /year-archive/
-  - title: "tag"
-    url: /tags/
-  - title: "Category"
-    url: /categories/
+  - title: "About"
+    url: /About/
+  - title: "Posts"
+    url: /Posts/
+
+posts_navi:
+  - title: Development
+    children:
+      - title: "C/C++"
+        url: /Development/C,C++/
+      - title: "Go"
+        url: /Development/Go/
+      - title: "Python"
+        url: /Development/Python/
+      - title: "Server"
+        url: /Development/Server/
+  - title: Summary
+    children:
+      - title: "Summary"
+        url: /Posts/Summary
+
+about_navi:
+  - title: About
+    children:
+      - title: Experience
+        url: /About/Experience/
+      - title: Portpolio
+        url: /About/Portpolio/

@@ -96,9 +96,9 @@ analytics:
 author:
   name             : "Yang S.H"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "노력하는 개발자"
+  bio              : "우여곡절 개발자"
   location         : "Seoul"
-  email            :
+  email            : "sea5727@naver.com" 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -280,3 +280,5 @@ defaults:
       comments: true
       share: true
       related: true
+      sidebar_main: true
+      

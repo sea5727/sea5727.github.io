@@ -131,6 +131,42 @@ $ git push
 브라우저에 http://<깃허브아이디>.github.io로 접속하여 사이트 화면을 확인할 수 있습니다.
 
 
+### Navigation 등록하기
+
+블로그의 최상단에 nav 를 추가합니다.
+
+#### 1. 사이트 상단의 nav 목록 추가
+
+/_data/navigation.yml 에 `main:` 에 아래 포맷에 맞춰 추가합니다.
+
+title : 표시되는 문구입니다.
+url : 클릭시 이동하는 url입니다.
+
+``` yml
+main:
+  - title: "About"
+    url: /About/
+  - title: "Posts"
+    url: /Posts/
+```
+
+
+### 2. 사이트 왼쪽 옆에 nav 목록 추가
+
+/_data/navigation.yml 에 `이름:` 으로 아래 포맷에 맞춰 추가합니다.
+
+``` yml
+posts_navi:
+  - title: Development
+    children:
+      - title: "C/C++"
+        url: /Development/C,C++/
+      - title: "Go"
+        url: /Development/Go/
+      - title: "Python"
+        url: /Development/Python/
+  - title: ...
+```
 
 
 
