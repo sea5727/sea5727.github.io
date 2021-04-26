@@ -127,7 +127,6 @@ chmod 644 /etc/systemd/system/mytestsvc.service
 ```
 vim /etc/systemd/system/mytestsvc.service
 ...
-
 [Unit]
 Description=This is the manually created service
 After=network.target
