@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: "tls/ssl 시작하기"
 date: 2021-04-27 03:24:59 +0900
 categories: summary tls

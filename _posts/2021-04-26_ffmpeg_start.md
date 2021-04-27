@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: ffmpeg 시작하기
 date: 2021-04-26 15:07:33 +0900
 categories: summary

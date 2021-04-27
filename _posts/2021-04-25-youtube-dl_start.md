@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: "youtube-dl 시작하기!"
 date: 2021-05-25 01:21:00 +0900
 categories: summary

@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: "pyenv 시작하기"
 date: 2021-05-25 00:46:09 +0900
 categories: summary

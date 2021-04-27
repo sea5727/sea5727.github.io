@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: "janus 시작하기 #1"
 date: 2021-04-26 16:18:19 +0900
 categories: summary janus
@@ -28,9 +28,7 @@ linux 시스템에서 build하여 설치하는 방법과 docker방식 두가지�
 sudo apt install libmicrohttpd-dev
 sudo apt install libjansson-dev
 sudo apt install libssl-dev
-sudo apt install libsrtp-dev
 sudo apt install libsofia-sip-ua-dev
-sudo apt install libsrtp2-dev
 sudo apt install libopus-dev
 sudo apt install libogg-dev
 sudo apt install libcurl14-openssl-dev
@@ -60,6 +58,15 @@ ninja -j 4
 sudo ninjs install
 ```
 
+#### libsrtp2-v2.2.0 install
+libsrtp2 버전이 맞지않으면 DTLS 실패가 발생하는듯 합니다. 2.2.0 버전을 설치해줍니다.
+```
+wget https://github.com/cisco/libsrtp/archive/v2.2.0.tar.gz
+tar xfv v2.2.0.tar.gz
+cd libsrtp-2.2.0
+./configure --prefix=/usr --enable-openssl
+make shared_library && sudo make install
+```
 ### janus-gateway install
 ```
 git clone https://github.com/meetecho/janus-gateway.git
@@ -97,6 +104,7 @@ cd /opt/janus
 ```
 
 터미널을 새로 열어 http 서버를 실행합니다.
+python 에서 제공하는 심플한 http server입니다. 개발용으로 사용하도록 하겠습니다.
 ```
 cd /opt/janus/share/janus/demos
 python3 -m http.server

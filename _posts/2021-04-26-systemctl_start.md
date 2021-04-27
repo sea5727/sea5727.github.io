@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title: "systemctl 시작하기"
 date: 2021-04-26 17:30:19 +0900
 categories: summary systemctl

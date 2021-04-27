@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: archive
 title:  "github 블로그 시작하기"
 date:   2021-04-24 18:46:07 +0900
 categories: summary
