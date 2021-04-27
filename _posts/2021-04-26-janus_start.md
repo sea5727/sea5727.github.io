@@ -154,9 +154,7 @@ python 2 버전인경우 `python -m SimpleHTTPServer` 입니다.
 - janus.plugin.<demo-name>.jcfg : 각종 데모관련 설정 파일 ( 추측 )
 
 
-
-
-
+![janus-home](https://github.com/sea5727/minimal-mistakes/blob/master/assets/images/2021-04-26-janus_start-image1.png)
 
 
 
