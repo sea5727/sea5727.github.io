@@ -22,7 +22,7 @@ linux 시스템에서 build하여 설치하는 방법과 docker방식 두가지�
 
 설치방법은 janus-github 사이트에도 잘 나와있지만 직접 입력한 커맨드를 정리해보겠습니다.
 
-### 일부 package apt install 설치
+### package apt install 
 ```
 sudo apt install libmicrohttpd-dev
 sudo apt install libjansson-dev
@@ -48,7 +48,7 @@ sudo apt install libgstreamer-plugins-base1.0-dev
 sudo apt install libgstreamer-plugins-bad1.0-dev
 ```
 
-#### libnice 설치
+#### libnice install
 ```
 sudo apt install meson
 git clone https://github.com/libnice/libnice.git
@@ -59,7 +59,7 @@ ninja -j 4
 sudo ninjs install
 ```
 
-### cmake 설치
+### cmake install
 cmake 를 설치한 이유는 libwebsocket을 빌드하기 위해서입니다. 
 ```
 wget https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1.tar.gz
@@ -70,7 +70,7 @@ make -j 4
 sudo make install
 ```
 
-## libwebsockets 설치
+## libwebsockets install
 ```
 git clone https://libwebsockets.org/repo/libwebsockets
 cd libwebsockets
@@ -82,7 +82,7 @@ make -j 4
 sudo make install
 ```
 
-### janus-gateway 설치
+### janus-gateway install
 ```
 git clone https://github.com/meetecho/janus-gateway.git
 cd janus-gateway/
@@ -128,36 +128,7 @@ python 2 버전인경우 `python -m SimpleHTTPServer` 입니다.
 
 브라우저에서 8000포트로 접속합니다.
 
-
-
-
-
-
-### janus folder architecture 
-
-- bin : janus binary 폴더
-- etc : config 폴더
-- include : plugin include 폴더 (?)
-- lib : plugin library 폴더 (?)
-- share : script, javascript, demos 같은 유틸 폴더 (?)
-
-### janus configuration
-`<janus-home>/etc/janus/` 폴더에는 여러 설정 파일의 sample들이 있습니다. 사용할 설정 파일은 이름에서 sample을 지우고 사용하면 됩니다.
-
-`janus.jcfg`와 `janus.transport.http.jcfg` 설정 파일은 필수인듯 보입니다.
-
-
-- janus.jcfg : 일반 설정. 설정 파일이나 플러그인 위치를 명시하거나 로그 포맷, binary 기동 규칙(background or foreground), 로그레벨 등을 설정
-- janus.transport.http.jcfg.sample : 웹 서버 관련. `web-front` 가 접속할 포트, ssl포트, BASE-URL등을 설정. 
-- janus.transport.pfunix.jcfg.sample : `Unix Socket` 을 사용할 수 있도록 하는 설정. unix socket path나 활성화 유무등을 설정.
-- janus.transport.websocket.jcfg : `websocket` 관련 설정. (어떤것을 할 수 있는 설정일까?)
-- janus.plugin.<demo-name>.jcfg : 각종 데모관련 설정 파일 ( 추측 )
-
-
-![janus-home](https://github.com/sea5727/minimal-mistakes/blob/master/assets/images/2021-04-26-janus_start-image1.png)
-
-
-
+<img src="../_assets/_images/2021-04-26-janus_start-image1.png" alt="drawing" width="480" height="320"/>
 
 
 
