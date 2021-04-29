@@ -67,6 +67,19 @@ cd libsrtp-2.2.0
 ./configure --prefix=/usr --enable-openssl
 make shared_library && sudo make install
 ```
+
+#### usrsctp install (for data channels)
+janus의 Data Channel을 사용하지 않을거라면 빌드하지 않아도 됩니다.
+```
+git clone https://github.com/sctplab/usrsctp.git
+cd usrsctp
+mkdir build
+cd build
+cmake ..
+make -j 4
+sudo make install
+```
+
 ### janus-gateway install
 ```
 git clone https://github.com/meetecho/janus-gateway.git
