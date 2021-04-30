@@ -183,3 +183,5 @@ https://jekyllrb.com/
 https://junhobaik.github.io/jekyll-apply-theme/#%EB%8C%93%EA%B8%80-%EC%84%A4%EC%A0%95   
 
 https://ansohxxn.github.io/blog/jekyll-directory-structure/
+
+https://danggai.github.io/github.io/Github.io-%EC%9B%94%EB%B3%84-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EB%B6%84%EB%A5%98-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0/

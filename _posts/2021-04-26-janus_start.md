@@ -2,7 +2,7 @@
 layout: archive
 title: "janus 시작하기 #1"
 date: 2021-04-26 16:18:19 +0900
-categories: summary janus
+categories: janus
 tag:
 - janus
 blog: true
@@ -67,14 +67,46 @@ cd libsrtp-2.2.0
 ./configure --prefix=/usr --enable-openssl
 make shared_library && sudo make install
 ```
+
+#### usrsctp install
+data-channels 기능을 사용하기 위해서 설치해야하는 라이브러리입니다.
+```
+git clone https://github.com/sctplab/usrsctp.git
+cd usrsctp
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+
+
 ### janus-gateway install
 ```
 git clone https://github.com/meetecho/janus-gateway.git
 cd janus-gateway/
 ./autogen.sh
-./configure --prefix=/opt/janus
+./configure \
+  --prefix=/opt/janus \
+  --enable-data-channels \
+  --disable-rabbitmq \
+  --disable-mqtt \
+  --disable-unix-sockets \
+  --enable-plugin-echotest \
+  --enable-plugin-recordplay \
+  --enable-plugin-sip \
+  --enable-plugin-videocall \
+  --enable-plugin-voicemail \
+  --enable-plugin-textroom \
+  --enable-rest \
+  --enable-turn-rest-api \
+  --enable-plugin-audiobridge \
+  --enable-plugin-nosip \
+  --enable-all-handlers
 make -j 4
 sudo make install
+sudo make configs
+ldconfig
 ```
 
 ### check installed path

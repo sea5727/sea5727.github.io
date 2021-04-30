@@ -1,6 +1,6 @@
 ---
 title: "Posts"
-layout: archive
+layout: monthly
 sidebar:
   nav: "posts_navi"
 ---
