@@ -78,6 +78,10 @@ tls 또는 ssl 는 안전한 통신을 하기 위해 사용되는 프로토콜 �
 ### 3. Session Close
 
 
+
+## tls/ssl 사용하기
+`ssl` 을 사용하기 위해서는 일반적으로 `certificate (.pem)` 과 `privatekey(.key)` 파일이 필요합니다. 확장는 `.pem`, `.crt`, `.key` 일수도 있습니다. 
+
 ## 인증서 생성하기
 
 ### Certificate Format
@@ -90,7 +94,12 @@ https나 다른 tls/ssl 프로토콜을 사용하려하면 라이브러리들이
 .key 파일은 private.key, public.key 처럼 key라는 의미를 나타내는 포맷입니다. .key파일은 pem포맷으로 되어있습니다.
 
 #### csr (Certificate Signing Request)
-csr은 서버(개인키의 소유자)가 인증기관에게 서비스 및 공개키 정보를 담아 인증서 발급을 요청하는 __인증서 서명 요청__ 문서 입니다. 간단히 CA에게 인증서 발급 요청을 하는 문서입니다. 
+csr은 서버(개인키의 소유자)가 인증기관에게 서비스 및 공개키 정보를 담아 인증서 발급을 요청하는 __인증서 서명 요청__ 문서 입니다. 간단히 CA에게 인증서 발급 요청을 하는 문서입니다. 문서는 `BEGIN CERTIFICATE REQUEST`로 시작해서 `END CERTIFICATE REQUEST` 로 끝이 납니다.
+```
+-----BEGIN CERTIFICATE REQUEST-----
+...
+-----END CERTIFICATE REQUEST-----
+```
 
 #### crt (Certificate)
 전자 인증서입니다. 서버로부터 받은 csr로부터 인증기관은 crt를 생성합니다. 사설인증서나 self-signed-ceritficate 처럼 스스로 생성할 수 도 있습니다. `pem` 포맷으로 `.crt` 라는 확장자로 사용됩니다. 문서는 `BEGIN CERTIFICATE` 로 시작해서 `END CERTIFICATE` 로 끝이 납니다.
@@ -99,6 +108,8 @@ csr은 서버(개인키의 소유자)가 인증기관에게 서비스 및 공개
 ...
 -----END CERTIFICATE-----.
 ```
+
+
 
 ### create openssl certificate
 ```
@@ -116,6 +127,9 @@ openssl req -new -key private.key -out private.csr
 openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 ```
 
+
+### 확인하기
+https://www.sslshopper.com/certificate-key-matcher.html
 
 ## Hash
 
