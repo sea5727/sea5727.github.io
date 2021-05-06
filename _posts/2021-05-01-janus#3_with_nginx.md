@@ -12,14 +12,14 @@ sidebar:
   nav: "posts_navi"
 ---
 
-janus는 내부적으로 HTTP RestFul API 만을 제공합니다. 즉 서비스를 진행하기위한(데모를 진행하기위한) 웹서버가 필요합니다. `Janus 시작하기 #2` 에서는 웹서버를 간단한 `python`으로 실행하였습니다.
+janus는 내부적으로 HTTP Restful API 만을 제공합니다. 즉 서비스를 진행하기위한(데모를 진행하기위한) 웹서버가 필요합니다. `Janus 시작하기 #2` 에서는 웹서버를 간단한 `python`으로 실행하였습니다.
 이젠 운영환경에서도 사용할 수 있는 `nginx`와 `janus`를 연동해 보겠습니다.
 
 기본값으로 `janus`는 http는 `8088` https는 `8089`포트로 restapi를 사용하고 있습니다. 이 포트를 http는 `80`, https는 `443` 으로 변경하고 nginx에서 restapi를 janus로 연동하도록 nginx proxy를 작성해보겠습니다.
 
 ## modify restapi port
 `echotest.js`를 수정해보겠습니다.`8088`과 `8089`를 `80`과 `443` 변경합니다.   
-또한, http 경로를 `webrtc`로 변경합니다. http(s) 포트로 `janus`를 사용하니 janus.js나 janus-image 처럼 이름 rule에 의해서 발생하는 오류들을 피하기 위해서입니다.   
+또한, http Rerousrce Path를 `janus` 에서 `webrtc`로 변경합니다. 웹서버와 janus 프로세스간 일부 `janus` path가 겹쳐 (janus-image, janus.js 등) 충돌을 피하기 위하여 변경했습니다. ( 더 좋은 방법이 있으면 알려주세요.ㅠ_ㅠ)   
 
 ### before
 ``` js
