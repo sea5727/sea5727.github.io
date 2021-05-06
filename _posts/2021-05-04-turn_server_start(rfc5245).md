@@ -28,6 +28,11 @@ NAT환경의 두 단말이 TURN 서버를 사용해서 통신을 하는것은 `T
 `TURN` 은 `STUN` 프로토콜의 확장이므로 대부분(전부는 아님)의 `TURN message`는 `STUN`의 규격 메시지를 포함하고 있습니다.
 
 
+## 1 STUN
+Client가 `STUN Server` 에게 `Binding Request` 요청을 하면 서버는 `Binding Response`응답을 `XOR-MAPPED-ADDRESS` 값에 Client의 Source IP, Source Port를 담아 회신합니다.
+
+
+
 ## 2.1 Transports
 `TURN`은 `server`와 `peer`간은 항상 `UDP`를 사용합니다. 반대로 `TURN client`와 `TURN server`는 `UDP`, `TCP`, `TLS`가 사용될 수 있습니다.    
 즉, `STUN client`와 `STUN Server`간에 `TCP` 또는 `TLS` 로 통신한다면 `STUN server`는 `UDP`로 바꿔 `peer`에게  전달합니다.(최신 TURN은 TCP 등도 지원하는지 확인이 필요함.)
@@ -37,6 +42,9 @@ NAT환경의 두 단말이 TURN 서버를 사용해서 통신을 하는것은 `T
 
 ### TLS (TURN client <-> TURN server)
 `TURN`에 의해 기본 인증은 제공하지 않기 때문에 추가적으로 보안 특성이 필요하다면 TLS를 사용해야합니다. 하지만 relay 특성상 많은 서버 cost필요하며, 추가적으로 암호화 비용이 소모 되고, TLS 메시지를 UDP datagram 및 암호화를 하는 추가적인 과정도 필요하기에 TURN은 기본적으로 TLS를 사용하지 않습니다.
+
+### UDP (TURN cleint <-> TURN server)
+방화벽이나 다른 문제가 없다면 UDP를 사용하여 통신할 수 있습니다.
 
 
 
