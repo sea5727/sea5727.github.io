@@ -87,24 +87,14 @@ systemctl restart coturn
 [test](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) 에서 STUN or TURN URI에 도멘인을 입력하고 `Add Server`를 클릭합니다. 기존에 등록되어있는 구글서버는 `Remove Server`를 합니다.  
 
 ICE candidate에 공인IP가 수집되어야 정상입니다.
-TODO : 사진
-
-2021-05-10_ice_trickle.png
-<!-- 2021-05-10_ice_trickle.png -->
-<img src="{{ site.url }}{{ site.baseurl }}/2021-05-10_ice_trickle.png" alt="">
-이미지?
-<img src="http://192.168.59:8080/_assets/_images/2021-05-10_ice_trickle.png" alt="">
-이미지...
-<img src="/2021-05-10_ice_trickle.png" alt="">
-이미지2
-<img src="/assets/2021-05-10_ice_trickle.png" alt="">
+<img src="/assets/images/2021-05-10_ice_trickle.png" alt="">
 
 
 ## plugin(echotest.js)에 STUN 서버 변경
 `echotest.js` 와 `janus.js` 파일에 stun 서버값을 수정하겠습니다.   
-제 도메인은 `sanghotest.iptime.org` 입니다.
-echotest.js
+제 도메인은 `sanghotest.iptime.org` 입니다.   
 ``` js
+// echotest.js
 janus = new Janus(
 	{
 		server: server,
@@ -112,14 +102,13 @@ janus = new Janus(
 			{urls: "stun:sanghotest.iptime.org"},
 		],
     ...
-  })
+  }
+)
 ```
-janus.js
 ``` js
 ...
-//BEFORE
+// janus.js
 //var iceServers = gatewayCallbacks.iceServers || [{urls: "stun:stun.l.google.com:19302"}];
-//AFTER
 var iceServers = gatewayCallbacks.iceServers
 if(iceServers == null) {
   var iceServers = [{urls: "stun:stun.l.google.com:19302"}];
@@ -137,7 +126,7 @@ nat: {
 ```
 
 ## stun 결과
-`janus` 에서 `stun` 서버는 기본적으로 google 서버로 설정이 되어있기 때문에 실제롣 동작하는 모습은 큰 변화가 없습니다. 다만 `ice candidate`를 수집하는 과정에서 `binding reuqest`, `binding response` 를 coturn 서버와 통신하고있습니다.
+`janus` 에서 `stun` 서버는 기본적으로 google 서버로 설정이 되어있기 때문에 실제로 동작하는 모습은 큰 변화가 없습니다. 다만 `ice candidate`를 수집하는 과정에서 `binding reuqest`, `binding response` 를 coturn 서버와 통신하고있습니다.
 
 
 ## turn test

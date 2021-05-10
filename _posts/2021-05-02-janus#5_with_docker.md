@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "janus 시작하기 #4"
+title: "janus 시작하기 #6"
 date: 2021-05-02 02:32:12 +0900
 categories: janus docker
 tag:
