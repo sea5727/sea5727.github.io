@@ -72,15 +72,15 @@ janus = new Janus(
 <img src="/assets/images/janus/2021-05-10_turn_packet_caputre.png" alt=""/>
 
 #### janus 화면
-<img src="/assets/images/janus/2021-05-10_turn_janus_echotest.jpg" alt=""/>
+<img src="/assets/images/janus/2021-05-10_turn_janus_echotest.png" alt=""/>
 
 
 
 ### coturn reference
-https://ourcodeworld.com/articles/read/1175/how-to-create-and-configure-your-own-stun-turn-server-with-coturn-in-ubuntu-18-04
-https://docs.bigbluebutton.org/2.2/setup-turn-server.html
-https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/
-https://meetrix.io/blog/webrtc/coturn/installation.html
-https://nextcloud-talk.readthedocs.io/en/latest/TURN/
-https://docs.bigbluebutton.org/2.2/setup-turn-server.html
-https://gabrieltanner.org/blog/turn-server
+https://ourcodeworld.com/articles/read/1175/how-to-create-and-configure-your-own-stun-turn-server-with-coturn-in-ubuntu-18-04   
+https://docs.bigbluebutton.org/2.2/setup-turn-server.html   
+https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/   
+https://meetrix.io/blog/webrtc/coturn/installation.html   
+https://nextcloud-talk.readthedocs.io/en/latest/TURN/   
+https://docs.bigbluebutton.org/2.2/setup-turn-server.html   
+https://gabrieltanner.org/blog/turn-server   
