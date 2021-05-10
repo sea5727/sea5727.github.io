@@ -14,7 +14,7 @@ sidebar:
 
 janus, nginx, coturn을 docker 환경에서 실행 해 보겠습니다.
 
-원본 소스는 [링크](/)에서 확인할 수 있습니다.
+원본 소스는 [링크](https://github.com/sea5727/janus-gateway-docker)에서 확인할 수 있습니다.
 
 ## 1. Coturn Docker
 
