@@ -10,7 +10,7 @@ encrypted: "464ecb7e05d18936fbb472545b4696f562399893b3b40aef0fbc4832ea35199d"
 ## Skills
 ### C/C++ Server Programming
 - tcp/ip socket programming based Linux ( multi/single-thread with epoll )
-- Modern C++ programming ( C++17 )
+- Modern C++ programming
 ### Protocols
 #### Web
 - HTTP
