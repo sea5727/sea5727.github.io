@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 janus를 TURN 과 연동해보록 하겠습니다.

@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 `systemctl` 은 `systemd(시스템 데몬)` 및 `Service Manager`를 관리하는 커맨드라인 툴입니다. 과거 리눅스버전에서 사용되던 `service` 툴을 대체하고 새로운 버전에서 사용되고 있습니다. 

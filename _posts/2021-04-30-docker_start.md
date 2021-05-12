@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 janus를 docker 환경에서 실행 해 보겠습니다.

@@ -10,6 +10,7 @@ author: ysh
 description: youtube-dl 설치과정 및 실행방법 정리
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 ## youtube-dl

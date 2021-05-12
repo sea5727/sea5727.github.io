@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 janus는 내부적으로 HTTP Restful API 만을 제공합니다. 즉 서비스를 진행하기위한 웹서버가 필요합니다.   
@@ -114,7 +115,6 @@ systemctl restart nginx
 
 ## start echotest 
 `browser`에서 janus로 접속하여 echotest를 실행합니다.
-TODO : <사진>
 
 ## 마무리
 nginx 를 사용하여 janus앞단에 http proxy를 구축해보았습니다.

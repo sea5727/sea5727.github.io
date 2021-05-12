@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 Janus는 이미 google의 stun 서버가 기본적으로 설정이 되어있습니다. 따라서 stun 서버는 구축할 필요가 없습니다. 다만 turn 서버를 사용하거나, stun서버를 자체적으로 구축하기 위해서는 절차를 수행해야합니다.

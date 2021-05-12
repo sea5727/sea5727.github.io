@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 janus, nginx, coturn을 docker 환경에서 실행 해 보겠습니다.
@@ -55,7 +56,7 @@ CONTAINER ID   IMAGE                   COMMAND                  CREATED       ST
 ### 기능 확인 (ICE Trickle)
 [링크](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) 에서 기능을 확인합니다.
 공인아이피를 수집한다면 성공입니다.
-TODO 사진
+
 
 ## Reference
 https://hub.docker.com/r/instrumentisto/coturn
@@ -89,14 +90,13 @@ base file을 기반으로 janus를 빌드하고 이미지를 생성합니다.
 docker run -it -d \
 	--name janus-gateway \
 	--network WebRTC \
-	--volume WebRTC:/opt/janus \
+	--volume janus-volume:/opt/janus \
 	--volume cert.crt:/opt/janus/certs/cert.crt:ro \
 	--volume cert.key:/opt/janus/certs/cert.key:ro \
 	sea5727/janus-gateway-docker:latest
 ```
-```
 
-```
+#### Dockerfile
 ``` Dockerfile
 FROM sea5727/janus-gateway-base:latest
 
@@ -131,23 +131,6 @@ RUN cd /tmp/janus-gateway && \
 CMD ["/opt/janus/bin/janus"]
 ```
 
-
-```
-	@docker build \
-	--no-cache \
-	-t sea5727/janus-gateway:dev \
-	-f Dockerfile.janus \
-	.
-
-	@docker run -it -d \
-	--name $(JANUS_NAME) \
-	--network $(NETWORK_NAME) \
-	--volume $(VOLUME_NAME):$(VOLUME_PATH) \
-	--volume $(CERT_FILE_FROM):$(CERT_FILE_TO):ro \
-	--volume $(KEY_FILE_FROM):$(KEY_FILE_TO):ro \
-	$(JANUS_IMAGE_NAME)
-```
-
 -------------------------------------------
 
 ## 3. Nginx proxy Docker
@@ -160,24 +143,14 @@ docker pull nginx
 
 ### nginx run
 ```
-mkdir -p /etc/nginx/certs
-cp ./cert.crt /etc/nginx/certs/cert.crt
-cp ./cert.key /etc/nginx/certs/cert.key
-cp ./nginx.conf /etc/nginx/nginx.conf
-```
-mkdir -p /etc/nginx/certs
-cp ./cert.crt /etc/nginx/certs/cert.crt
-cp ./cert.key /etc/nginx/certs/cert.key
-cp ./nginx.conf /etc/nginx/nginx.conf
-
-	@docker run -d -it --name $(TEMPLATE_NAME) \
-	--network $(NETWORK_NAME) \
-	--volume $(VOLUME_NAME):/opt/janus \
-	--volume $(CONF_FILE_FROM):$(CONF_FILE_TO):ro \
-	--volume $(CERT_FILE_FROM):$(CERT_FILE_TO):ro \
-	--volume $(KEY_FILE_FROM):$(KEY_FILE_TO):ro \
+docker run -d -it --name nginx \
+	--network WebRTC \
+	--volume janus-volume:/opt/janus \
+	--volume ./cert.crt:/etc/nginx/certs/cert.crt:ro \
+	--volume ./cert.key:/etc/nginx/certs/cert.key:ro \
+	--volume ./nginx.conf:/etc/nginx/nginx.conf \
 	-p 8083:80 \
 	-p 8084:443 \
-	$(IMAGE_NAME)
+	nginx
 
 ```

@@ -10,13 +10,11 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 `janus` 는 `WebRTC` 서버입니다. WebRTC란 `Web Browser`에서 음성통화, 영상통화, 회의통화, 스트리밍 등 다양한 실시간 통신 서비스를 제공하는 오픈소스 프로젝트 입니다. `janus`는 `Browser` 간에 시그널링 기능을 제공하고 SFU, MCU 등과 같은 미디어 서버로써 1:1통화, 회의통화, 스트리밍 같은 서비스를 플러그인을 직접 개발하여 제공해줄 수 있습니다.   
 janus는 웹서버가 아님에도 `demo`로 활용할수 있는 `web page` 를 제공해주는점이 참으로 편리한것 같습니다 ( 프론트 너무 어렵습니다 )
-
-## install
-linux 시스템에서 build하여 설치하는 방법과 docker방식 두가지를 작성해 보겠습니다.
 
 
 ### build
@@ -140,16 +138,14 @@ python 에서 제공하는 심플한 http server입니다. 개발용으로 사�
 cd /opt/janus/share/janus/demos
 python3 -m http.server
 ```
+
+```
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+```
+
 python 2 버전인경우 `python -m SimpleHTTPServer` 입니다. 
 
 브라우저에서 8000포트로 접속합니다.
 
 <img src="../_assets/_images/2021-04-26-janus_start_image1.png" alt="drawing" width="480" height="320"/>
 
-
-
-## docker
-
-
-
-TODO

@@ -10,6 +10,7 @@ author: ysh
 description: 
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 `dockerhub`는 `docker` 컨테이너 이미지를 공유하는 플랫폼입니다. 언제 어디서든 도커이미지를 등록하거나 내려받을 수 있습니다.
