@@ -5,6 +5,7 @@ date:   2021-04-24 18:46:07 +0900
 categories: summary
 sidebar:
   nav: "posts_navi"
+comments: true
 ---
 
 깃헙 블로그를 시작하면서 개발장비에서 로컬 개발환경을 구성하고, 깃허브에 업로드하여 접속하는 단계까지 진행합니다.

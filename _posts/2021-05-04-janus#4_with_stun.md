@@ -87,7 +87,7 @@ systemctl restart coturn
 [test](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) 에서 STUN or TURN URI에 도멘인을 입력하고 `Add Server`를 클릭합니다. 기존에 등록되어있는 구글서버는 `Remove Server`를 합니다.  
 
 ICE candidate에 공인IP가 수집되어야 정상입니다.
-<img src="/assets/images/janus/2021-05-10_ice_trickle.png" alt="">
+<img src="/assets/images/janus/2021-05-12-stun_ICE_trickle.png" alt="">
 
 
 ## plugin(echotest.js)에 STUN 서버 변경

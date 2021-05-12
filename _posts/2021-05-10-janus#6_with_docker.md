@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "janus 시작하기 #6"
+title: "janus 시작하기 #6 with Docker"
 date: 2021-05-10 05:32:12 +0900
 categories: janus docker
 tag:
@@ -72,69 +72,33 @@ janus 컨테이너를 먼저 생성하여 html 파일들을 volume에 저장하�
 janus 는 janus를 빌드할 환경을 가지고 있는 base image를 먼저 생성후, janus 소스를 github로부터 내려받아 빌드하는 방법으로 진행하였기 때문에 image파일이 `janus-base` 와 `janus-gateway`2개가 생성됩니다.
 
 
-janus 코드를 빌드할 환경 base image 입니다.
-#### janus-base 
-``` Dockerfile
-FROM buildpack-deps:stretch
+janus 코드를 빌드할 환경 base image 입니다.   
 
-RUN sed -i 's/archive.ubuntu.com/mirror.aarnet.edu.au\/pub\/ubuntu\/archive/g' /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal main restricted' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal-updates main restricted' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal universe' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal-updates universe' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal multiverse' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal-updates multiverse' >> /etc/apt/sources.list && \
-    echo 'deb http://kr.archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse' >> /etc/apt/sources.list && \
-    echo 'deb http://security.ubuntu.com/ubuntu focal-security main restricted' >> /etc/apt/sources.list && \
-    echo 'deb http://security.ubuntu.com/ubuntu focal-security universe' >> /etc/apt/sources.list
-
-RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get update --allow-unauthenticated -y && apt-get install --allow-unauthenticated -y \
-    libjansson-dev  libnice-dev         libssl-dev \
-    gstreamer1.0-tools libsofia-sip-ua-dev libglib2.0-dev \
-    libopus-dev     libogg-dev          libini-config-dev \
-    libcollection-dev libconfig-dev     pkg-config \
-    gengetopt       libtool             autopoint \
-    automake        build-essential     subversion \
-    git             cmake               unzip \
-    zip             texinfo             lsof \ 
-    wget            vim                 sudo \ 
-    rsync           cron                mysql-client \ 
-    openssh-server  supervisor          locate \ 
-    mplayer         valgrind            certbot \ 
-    python-certbot-apache dnsutils      tcpdump \
-    net-tools       libcurl4-gnutls-dev libgnutls28-dev
-
-RUN cd /tmp && \
-    git clone https://github.com/Karlson2k/libmicrohttpd.git && \
-    cd /tmp/libmicrohttpd && \
-    git checkout tags/v0.9.59 && \
-	 ./bootstrap && \
-	 ./configure && \
-	make && make install
-
-RUN cd /tmp && \
-    wget https://github.com/cisco/libsrtp/archive/v2.2.0.tar.gz -O libsrtp-v2.2.0.tar.gz && \
-    tar xfv libsrtp-v2.2.0.tar.gz && \
-    cd libsrtp-2.2.0 && \   
-    ./configure --prefix=/usr --enable-openssl && \
-	make shared_library && sudo make install 
-
-RUN cd /tmp && \
-    git clone https://github.com/sctplab/usrsctp.git && \
-    cd usrsctp && \
-    mkdir build && \
-    cd build && \
-    cmake .. && \
-    make && make install 
-
-CMD ["/bin/bash"]
-
+아래 base image는 dockerhub에서 내려받을 수 있게 해놓았습니다.
+pull을 사용하거나 또는 dockerfile을 사용하세요.
+#### dockerhub
+```
+docker pull sea5727/janus-gateway-base
 ```
 
+
 #### janus-gateway
+base file을 기반으로 janus를 빌드하고 이미지를 생성합니다.
+생성될 컨테이너의 이름은 `janus-gateway` 이고, 이미지 이름은 `sea5727/janus-gateway-docker:latest` 입니다.
+```
+docker run -it -d \
+	--name janus-gateway \
+	--network WebRTC \
+	--volume WebRTC:/opt/janus \
+	--volume cert.crt:/opt/janus/certs/cert.crt:ro \
+	--volume cert.key:/opt/janus/certs/cert.key:ro \
+	sea5727/janus-gateway-docker:latest
+```
+```
+
+```
 ``` Dockerfile
-FROM sea5727/janus-base:dev
+FROM sea5727/janus-gateway-base:latest
 
 RUN cd /tmp && \
     git clone https://github.com/sea5727/janus-gateway.git
@@ -167,14 +131,8 @@ RUN cd /tmp/janus-gateway && \
 CMD ["/opt/janus/bin/janus"]
 ```
 
-```
-build:
-	@docker build \
-	--no-cache \
-	-t sea5727/janus-base:dev \
-	-f Dockerfile.base \
-	.
 
+```
 	@docker build \
 	--no-cache \
 	-t sea5727/janus-gateway:dev \
