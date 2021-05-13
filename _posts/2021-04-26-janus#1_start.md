@@ -8,8 +8,6 @@ tag:
 blog: true
 author: ysh
 description: 
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---
 
@@ -147,5 +145,7 @@ python 2 버전인경우 `python -m SimpleHTTPServer` 입니다.
 
 브라우저에서 8000포트로 접속합니다.
 
-<img src="../_assets/_images/2021-04-26-janus_start_image1.png" alt="drawing" width="480" height="320"/>
+## 결과
+https://192.168.0.59:8000
+<img src="/assets/images/janus/2021-04-26-janus_start_image1.png" alt="drawing" width="480" height="320"/>
 

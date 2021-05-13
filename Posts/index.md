@@ -1,6 +1,9 @@
 ---
 title: "Posts"
 layout: monthly
+permalink: /Posts/
 sidebar:
-  nav: "posts_navi"
+  nav: empty
+sidebar_main: true
+author_profile: true
 ---

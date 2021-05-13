@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: 우여곡절 개발 이야기
+author_profile: true
 sidebar:
   nav: "about_navi"
 ---

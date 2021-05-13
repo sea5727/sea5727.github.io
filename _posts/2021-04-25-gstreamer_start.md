@@ -8,7 +8,5 @@ tag:
 blog: true
 author: ysh
 description: gstreamer 설치과정
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---

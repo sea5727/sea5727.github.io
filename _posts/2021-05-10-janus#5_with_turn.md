@@ -2,14 +2,12 @@
 layout: archive
 title: "janus 시작하기 #5 with TURN"
 date: 2021-05-10 04:00:00 +0900
-categories: janus stun turn
+categories: janus
 tag:
-- janus stun turn
+- janus
 blog: true
 author: ysh
 description: 
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---
 

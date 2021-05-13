@@ -8,8 +8,6 @@ tag:
 blog: true
 author: ysh
 description: ffmpeg를 커맨드 정리
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---
 

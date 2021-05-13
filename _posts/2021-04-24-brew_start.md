@@ -8,8 +8,6 @@ tag:
 blog: true
 author: ysh
 description: brew 설치과정 및 패키지 설치 정리
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---
 macOS 및 linux 패키지 관리 프로그램입니다.   

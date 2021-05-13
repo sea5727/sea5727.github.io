@@ -8,8 +8,6 @@ tag:
 blog: true
 author: ysh
 description: 
-sidebar:
-  nav: "posts_navi"
 comments: true
 ---
 
