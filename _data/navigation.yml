@@ -3,8 +3,6 @@ main:
     url: /About/
   - title: "Posts"
     url: /Posts/
-  - title: "Categories"
-    url: /Categories/
 
 posts_navi:
   - title: Development

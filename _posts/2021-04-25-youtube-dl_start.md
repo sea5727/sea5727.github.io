@@ -35,6 +35,7 @@ youtube-dl <Youtube-URL>
 [Youtube 재생목록 만들기 및 관리](https://support.google.com/youtube/answer/57792?co=GENIE.Platform%3DDesktop&hl=ko)
 
 - 폴더를 지정하여 번호를 매기는 포맷으로 다운로드
+`youtube-dl -o <out-file> <url>`
 ```
 youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' <Youtube-URL>
 ```

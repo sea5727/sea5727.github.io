@@ -2,9 +2,9 @@
 layout: archive
 title: "dockerhub 에 도커 이미지 올리기"
 date: 2021-05-10 05:32:12 +0900
-categories: janus docker
+categories: docker
 tag:
-- janus docker dockerhub
+- docker dockerhub
 blog: true
 author: ysh
 description: 

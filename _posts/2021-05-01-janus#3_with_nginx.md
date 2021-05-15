@@ -2,7 +2,7 @@
 layout: archive
 title: "janus 시작하기 #3 with Nginx"
 date: 2021-05-01 00:00:00 +0900
-categories: janus
+categories: janus nginx
 tag:
 - janus nginx
 blog: true
