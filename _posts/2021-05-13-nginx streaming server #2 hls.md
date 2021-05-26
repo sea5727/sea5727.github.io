@@ -121,7 +121,7 @@ ffmpeg -re -i /home/ysh8361/test2.mp4 -vcodec libx264 -vprofile baseline -g 30 -
 ```
 ### gstreamer -> rtmp -> nginx
 ```
-gst-launch-1.0 filesrc location=/home/ysh8361/test2.mp4 ! qtdemux name=demux demux.video_0 ! queue ! h264parse ! flvmux name=mux ! rtmpsink location=rtmp://localhost/streaming/buny  demux.audio_0 ! queue ! aacparse ! mux.
+gst-launch-1.0 filesrc location=/home/ysh8361/test2.mp4 ! qtdemux name=demux demux.video_0 ! queue ! h264parse ! flvmux name=mux ! rtmpsink location=rtmp://localhost/streaming/bunny  demux.audio_0 ! queue ! aacparse ! mux.
 ```
 
 ## play

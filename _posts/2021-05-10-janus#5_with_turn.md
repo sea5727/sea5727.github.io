@@ -83,3 +83,4 @@ https://meetrix.io/blog/webrtc/coturn/installation.html
 https://nextcloud-talk.readthedocs.io/en/latest/TURN/   
 https://docs.bigbluebutton.org/2.2/setup-turn-server.html   
 https://gabrieltanner.org/blog/turn-server   
+https://blog.daum.net/endlessole/176
